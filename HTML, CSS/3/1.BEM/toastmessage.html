@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>toastmessage</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!--
+    <!- - success - ->
+    <div id="toast">
+        <div class="toast toast--success" title="this is a toast message">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="toast__body">
+                <h3 class="toast__title">Success</h3>
+                <p class="toast__msg">Đây là ví dụ về Toast Message kết hợp với REM</p>
+            </div>
+
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <!- - info - ->
+        <div class="toast toast--info" title="this is a toast message">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="toast__body">
+                <h3 class="toast__title">Info</h3>
+                <p class="toast__msg">Đây là ví dụ về Toast Message kết hợp với REM</p>
+            </div>
+
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <!- - warning - ->
+        <div class="toast toast--warning" title="this is a toast message">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="toast__body">
+                <h3 class="toast__title">Warning</h3>
+                <p class="toast__msg">Đây là ví dụ về Toast Message kết hợp với REM</p>
+            </div>
+
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <!- - error - ->
+        <div class="toast toast--error" title="this is a toast message">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div class="toast__body">
+                <h3 class="toast__title">Error</h3>
+                <p class="toast__msg">Đây là ví dụ về Toast Message kết hợp với REM</p>
+            </div>
+
+            <div class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+    </div>
+
+-->
+
+    <h1>Toast message</h1>
+    <img src="./image.png">
+
+    <div>
+        <div onclick="ShowSuccessToast()" class="btn btn--success">Show success toast</div>
+        <div onclick="ShowWarningToast()" class="btn btn--danger">Show warning toast</div>
+        <div onclick="ShowErrorToast()" class="btn btn--error">Show error toast</div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        function toast({ title = "", message = "", type = "info", duration = 3000 })
+        {
+            const main = document.getElementById("toast");
+            if (main) {
+                const toast = document.createElement("div");
+                const icons = {
+                    success: 'fa-solid fa-circle-check',
+                    info: 'fa-solid fa-circle-check',
+                    warning: 'fa-solid fa-circle-exclamation',
+                    error: 'fa-solid fa-circle-exclamation',
+                }
+                icon = icons[type];
+                const delay = (duration/1000).toFixed(2);
+
+                //remove auto sau 1 khoảng thời gian
+                const autoRemove = setTimeout
+                (
+                    function() {main.removeChild(toast);},duration + 2000
+                );
+
+                //remove bằng cách ấn vào
+                //cụ thể là tìm thấy .toast__close -> remove
+                toast.onclick = function(e)
+                {
+                    if(e.target.closest('.toast__close'))
+                    {
+                        main.removeChild(toast);
+                        clearTimeout(autoRemove);
+                    }
+                }
+
+
+                toast.classList.add("toast",`toast--${type}`);
+                toast.style.animation = `SlideInLeft ease .3s, FadeOut linear 1s ${delay}s forwards`;
+                toast.innerHTML = `
+                <div class="toast__icon">
+                    <i class="${icon}"></i>
+                </div>
+
+                <div class="toast__body">
+                    <h3 class="toast__title">${title}</h3>
+                    <p class="toast__msg">${message}</p>
+                </div>
+
+                <div class="toast__close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                `;
+                main.appendChild(toast);
+            }
+        }
+        function ShowSuccessToast() {
+            toast({
+                title: "Success",
+                message: "Đây là toast của success",
+                type: "success",
+                duration: 5000
+            });
+        }
+        function ShowWarningToast() {
+            toast({
+                title: "Warning",
+                message: "Đây là toast của Warning",
+                type: "warning",
+                duration: 5000
+            });
+        }
+        function ShowErrorToast() {
+            toast({
+                title: "Error",
+                message: "Đây là toast của Error",
+                type: "error",
+                duration: 5000
+            });
+        }
+    </script>
+</body>
+
+</html>

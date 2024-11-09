@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>pseudo elements css</title>
+        <meta charset="utf-8" />
+        <!-- <link rel="stylesheet" href="style3.css" /> -->
+        <style>
+            html, body{
+                margin: 0;
+            }
+
+            .box{
+                width: 100%;
+                height: 100px;
+                background: pink;
+            }
+
+            /*ko tồn tại 2 before hoặc 2 after*/
+            .box::before{
+                content: "";
+                display: block;
+                width: 30px;
+                height: 30px;
+                background-color: white;
+            }
+            .box::after{
+                content: "";
+                display: block;
+                width: 30px;
+                height: 30px;
+                background-color: white;
+                margin-top: 10px;
+            }
+
+            h1.h1::first-letter{
+                font-size: 50px;
+            }
+
+            h1.h1::first-line{
+                color: red;
+            }
+
+            /*some how it not working with me*/
+            h1.h1::selection {
+                background-color: greenyellow;
+                color: pink;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- ^dù có 100 thẻ bên trong thẻ cha thì phần từ giả before sẽ luôn ở trước
+        phần từ giả after sẽ luôn ở sau tất cả các phần từ trong phần tử cha -->
+
+        <!-- phần tử giả -->
+        <h1 class="h1">CSS pseudo-elements <br> CSS second line </h1>
+        <ul>
+            <li>::before</li>
+            <li>::after</li>
+            <li>::first-letter</li>
+            <li>::first-line</li>
+            <li>::selection</li>
+            <li>...</li>
+        </ul>
+    </body>
+</html>

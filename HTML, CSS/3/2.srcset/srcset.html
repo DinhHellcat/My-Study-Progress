@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>img</title>
+        <meta charset="utf-8">
+        <!-- <link rel="stylesheet" href="./main.css"> -->
+    </head>
+    <!-- https://www.youtube.com/watch?v=Cgn82mchbgM&list=PL_-VfJajZj0U9nEXa4qyfB4U5ZIYCMPlz&index=39 -->
+    <!--
+    ## Trang web sử dụng ít hình ảnh (Tốc độ tải trang không bị ảnh hưởng nhiều bởi hình ảnh)
+        Tổi ưu sử dụng hình ảnh trên trang web?
+            1. Sử dụng định dạng ảnh phù hợp?
+                - Hình học, vector, v.v: SVG
+                - Bitmap transparent: PNG, WEBP
+                - Bitmap không transparent: JPEG, WEBP
+            2. Nén hình ành (giảm dung lượng)
+                - https://tinypng.com/
+            3. Sử dụng kích thước ảnh phù hợp?
+                - Original: 4000px x 4000px, Figma: 800pxx 800px (CSS), Resize: 1600px×1600px(2x),
+                đáp ứng tốt cho cả màn hình PPI/DPI cao (retina)
+                - PPI (Pixel per inch), DPI (Dots per inch): 100 DPI, 300 DPI
+        Loại màn hình:
+            1. Màn hình thường (DPI thấp - 1:1) : 800px x 800px (yes), 1600px x 1600px (no)
+            2. Màn hình retina (DPI cao - 2:1): 800px x 800px (no), 1600px× 1600px (yes)
+
+    ## Trang web sử dụng nhiều hình ảnh
+        Thiết bị:
+            1. Mobile: 1600px x 1600px (no)
+            2. Tablet: 1600px x 1600px (no)  => Tổn băng thông, chờ lâu hơn => Giảm trải nghiệm
+            3. Desktop: 1600px x 1600px (yes)
+    -->
+
+    <!--
+        # Bài toán 1
+            1. Mobile: 50px x 50px
+            2. Tablet: 100px x 100px
+            3. Desktop: 200px x 200px
+
+        # Bài toán 2
+            Desktop: 200px x 200px
+
+        # Bài toán 3
+            Desktop: img/ảnh-1.png
+            Mobile: img/ảnh-2.png
+
+    -->
+
+    <body>
+        <!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images -->
+
+        <!-- 1.Resolution switching: Different sizes -->
+        <!-- tối ưu cho các loại device -->
+        <!-- <div>
+            <img
+                srcset="
+                ./img100x100.png 100w,
+                ./img200x200.png 200w,
+                ./img400x400.png 400w,
+                "
+                sizes="(max-width: 575px) 100px,(max-width: 991px) 200px, 400px"
+                src="./img400x400.png"
+                alt="My Angel" />
+        </div> -->
+
+        <!-- 2. Resolution switching: Same size, different resolutions -->
+        <!-- Cùng kích thước, khác mật độ điểm ảnh (DPI) -->
+        <!-- <div>
+            <img srcset="./img200x200.png 1x, .img400x400.png 2x"
+            src="./img400x400.png"
+            alt="My Angel">
+        </div> -->
+
+        <!-- 3. Art direction -->
+        <!-- Khi ở desktop dùng ảnh này, nhưng khi ở mobile dùng ảnh kia -->
+        <!-- crop img -->
+        <div>
+            <picture>
+                <source media="(max-width: 575px)" srcset="./img400x400(1).png"/>
+                <img
+                    class="image"
+                    src="./img400x400.png"
+                    alt="My Angel">
+            </picture>
+        </div>
+    </body>
+</html>

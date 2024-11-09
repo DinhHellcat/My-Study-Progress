@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>pseudo classes css</title>
+        <meta charset="utf-8" />
+        <!-- <link rel="stylesheet" href="style3.css" /> -->
+        <style>
+            html, body{
+                margin: 0;
+            }
+
+            h1.h1:hover {
+                color: red;  /*thay đổi khi di chuột vào*/
+            }
+
+            h1.h2:active {
+                color: red; /*thay đổi khi bấm chuột vào*/
+            }
+
+            li:first-child  /*con đầu*/
+            {
+                color: red;
+                font-size: 20px;
+                font-style: italic;
+            }
+            li:last-child  /*con cuối*/
+            {
+                color: red;
+            }
+            /*dùng ul lại không được :/??? */
+            /*nếu nhiều thành phần -> sử dụng class ở ul*/
+
+        </style>
+        
+    </head>
+
+    <body>
+        <h1 class="h1">CSS pseudo-classes</h1> <!-- lớp giả -->
+        <h1 class="h2">CSS pseudo-classes</h1>
+        <ul>
+            <li>:root</li>
+            <li>:hover</li>
+            <li>:active</li>
+            <li>:first-child</li>
+            <li>:last-child</li>
+            <li>...</li>
+        </ul>
+    </body>
+</html>

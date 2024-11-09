@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>position absolute and relative css</title>
+        <meta charset="utf-8" />
+        <!-- <link rel="stylesheet" href="style3.css" /> -->
+        <style>
+            html, body{
+                margin: 0;
+            }
+
+            /*relative*/
+            h1{
+                /*margin-top: 100px;*/
+                
+                /*position: relative;
+                top: 100px;*/
+
+                left: 100px; /*sẽ không hoạt động nếu ko có thuộc tính position^*/
+            }
+
+            /*absolute*/
+            /*absolute position sẽ kiếm thẻ cha gần nhất để làm gốc
+            -> từ đó có thể di chuyển
+            mức độ ưu tiên: top -> bottom, left -> right*/
+            
+            .box{
+                width: 100%;
+                height: 100px;
+                background: pink;
+                position: relative; /*điểm quan trọng*/
+            }
+            .box-child{
+                width: 50px;
+                height: 50px;
+                background-color: white;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            .box-chanuoi{
+                width:80%;
+                height:80px;
+                background-color: greenyellow;
+                /*position: relative;*/
+                /*^ nếu bỏ bôi đen, box-child sẽ căn theo box-chanuoi thay vì 
+                box ngoài, cơ bản vì box-child sẽ lấy box cha nuôi gần nhất*/
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box">
+            <div class="box-chanuoi">
+                <div class="box-child"></div>
+            </div>
+        </div>
+
+        <h1 class="h1">Position in HTML</h1>
+        <ul>
+            <li style="color: red;">Relative</li>
+            <li style="color: red;">Absolute</li>
+            <li>Fixed</li>
+            <li>Sticky</li>
+        </ul>
+    </body>
+</html>

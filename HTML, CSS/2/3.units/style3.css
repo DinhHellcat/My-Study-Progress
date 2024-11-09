@@ -1,0 +1,19 @@
+.box
+{
+    width: 50%;
+    height: 100px;
+    /* width: 50vw;
+    heigh: 50vh; */
+    background-color: red;
+}
+
+html
+{
+    font-size: 100%;
+}
+
+h1
+{
+    font-size: 1 rem;
+    /* font-size: 1 em; */
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BEM</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    
+    <body>
+        <h1>BEM</h1>
+        <h2>là 1 cách đặt tên trong 1 dự án nhiều người <br> giúp dễ quản lí css</h2>
+        <ul>
+            <li>block</li>
+            <li>element of block</li>
+            <li>modifier for those block or element</li>
+        </ul>
+        <ul>
+            <li>.block</li>
+            <li>.block__element</li>
+            <div></div>
+            <li>.block--modifier</li>
+            <li>.block__element--modifer</li>
+        </ul>
+
+        <!-- mẫu ko sử dụng BEM -->
+        <div class="card">
+            <h3 class="heading">Got it!</h3>
+            <p class="desc">this is example</p>
+            <div class="btn">Ok?</div>
+        </div>
+
+        <!-- ví dụ cho việc ko sử dụng bem -->
+        <!--
+            .card{
+            }
+
+            .card .heading{
+            }
+            ^nếu làm 1 dự án nhiều người code, có thể sẽ code mất thẻ .card
+            => .heading{
+            }
+            từ đó khiến cho vô tình 1 thẻ .heading bị ghi đè
+            => dùng BEM
+        -->
+
+        <!-- vậy BEM như nào -->
+        <div class="card card--success"></div> <!-- block -->
+        <!-- block--modifier (kiểu bổ sung ý nghĩa cho block -> sau này truy vào css sẽ dể quản lí hơn) -->
+            <h3 class="card__heading">Got it!</h3> <!-- các element của block -->
+            <p class="card__desc">this is example</p>
+            <div class="card__btn">Ok?</div>
+        </div>
+
+        <div class="card card--error"></div>
+            <h3 class="card__heading">Got it!</h3> <!-- các element của block -->
+            <p class="card__desc">this is example</p>
+            <div class="card__btn">Ok?</div>
+        </div>
+    </body>
+</html>

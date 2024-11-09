@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>functions css</title>
+        <meta charset="utf-8">
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <style>
+            html, body{
+                margin: 0;
+            }
+
+            .box{
+                width: 100%;
+                height: 120px;
+                background: rgb(201, 83, 83);
+            }
+
+            .box2{
+                width: calc(120% - 500px);
+                /*dùng để giải quyết các trường hợp tính giá trị tương đối và tuyệt đối*/
+                background: fixed orange;
+            }
+
+            a::after{
+                content: " (" attr(href)")";
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box" title="đây là box màu đỏ"></div>
+        <div class="box box2" title="đây là box dùng calc"></div>
+
+        <a href="facebook.com" title="đây là ứng dụng attr()">facebook của tôi</a>
+
+        <h1>CSS functions</h1>
+        <ul>
+            <li>var()</li> <!-- root: {--variable name} -->
+            <li>linear-gradient()</li> <!-- gradient trong folder 5/fifthcss.html -->
+            <li>rgba(255,255,255,1)</li> <!-- mã màu + a là độ đậm nhạt (0 -> 1) -->
+            <li>rgb()</li>
+            <li>calc()</li>
+            <li>attr()</li>
+        </ul>
+    </body>
+</html>
