@@ -1,0 +1,41 @@
+02
+B
+A
+C
+
+03
+materials
+plastic
+metal
+wood
+cloth
+
+parts
+handles
+tray
+basket
+
+shapes
+round
+square
+
+05
+are picked
+are used
+is needed
+is grown
+
+07
+a overview
+b introduction
+
+08
+b
+
+09
+intro
+overview
+
+sequencing expressions First, Next, After that
+verbs is put, is mixed, is pushed, are placed, are cooked, is served
+description a rice grinder, a stringhopper press, round baskets, a steamer
